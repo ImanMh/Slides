@@ -7,6 +7,7 @@
     defaults = {
       width: 940,
       height: 528,
+      rtl: false,
       start: 1,
       navigation: {
         active: true,
@@ -56,6 +57,9 @@
     Plugin.prototype.init = function() {
       var $element, nextButton, pagination, playButton, prevButton, stopButton,
         _this = this;
+      if (this.options.rtl) {
+          this.options.start = 3;
+      }
       $element = $(this.element);
       this.data = $.data(this);
       $.data(this, "animating", false);
